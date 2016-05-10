@@ -2,6 +2,7 @@ syntax on
 set background=dark
 set number
 set backspace=2
+set noswapfile
 
 " tabbing
 set expandtab
