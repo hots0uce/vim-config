@@ -4,14 +4,18 @@ set number
 set backspace=2
 
 " tabbing
-set tabstop=4
 set expandtab
 set shiftwidth=4
+set softtabstop=4
 set autoindent
 set smartindent
 
+" Reset the leader char
+let mapleader = ","
+
 " Always show statusline
 set laststatus=2
+set t_Co=256
 
 " custom mappings
 imap jj <Esc>
@@ -38,6 +42,8 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'junegunn/vim-easy-align'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'jeetsukumaran/vim-buffergator'
+Plug 'nathanaelkane/vim-indent-guides'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -48,6 +54,16 @@ let g:javascript_enable_domhtmlcss = 1
 
 " airline
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" buffergator
+set hidden
+nmap <leader>t :enew<CR>
+nmap <leader>l :bnext<CR>
+nmap <leader>h :bprevious<CR>
+nmap <leader>bq :bp <BAR> bd #<CR>
+nmap <leader>bl :ls<CR>
 
 " syntastic
 set statusline+=%#warningmsg#
@@ -62,4 +78,8 @@ let g:syntastic_javascript_checkers = ['eslint']
 
 " ctrlp
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = {
+      \ 'dir': '\v[\/]\.(git)|test\-results|app\/vendor|node_modules|coverage|app\/fonts|app\/img|dist|release$'
+      \}
+
+
