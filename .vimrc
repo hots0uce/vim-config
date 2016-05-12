@@ -36,7 +36,7 @@ Plug 'helino/vim-json'
 Plug 'marijnh/tern_for_vim'
 Plug 'mhinz/vim-signify'
 Plug 'pangloss/vim-javascript'
-" Plug 'rking/ag.vim'
+Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
 Plug 'jelera/vim-javascript-syntax'
@@ -57,6 +57,7 @@ let g:javascript_enable_domhtmlcss = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_theme = 'bubblegum'
 
 " buffergator
 set hidden
@@ -80,7 +81,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 " ctrlp
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
-      \ 'dir': '\v[\/]\.(git)|test\-results|app\/vendor|node_modules|coverage|app\/fonts|app\/img|dist|release$'
-      \}
+  \ 'dir': '\v[\/]\.(git)|test\-results|app\/vendor|node_modules|coverage|app\/fonts|app\/img|dist|release$'
+\}
 
 
