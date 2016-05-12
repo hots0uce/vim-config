@@ -84,3 +84,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # alias vim="nvim"
 alias vim="/usr/local/bin/vim"
+
+
+# Theme config
+# BULLETTRAIN_NVM_SHOW=true
+BULLETTRAIN_GIT_COLORIZE_DIRTY=true
+BULLETTRAIN_TIME_SHOW=false
