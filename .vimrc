@@ -3,6 +3,7 @@ set background=dark
 set number
 set backspace=2
 set noswapfile
+set clipboard=unnamed
 
 " tabbing
 set expandtab
@@ -45,6 +46,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'burnettk/vim-angular'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -77,6 +79,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
+
 
 " ctrlp
 let g:ctrlp_working_path_mode = 'ra'
@@ -84,4 +88,9 @@ let g:ctrlp_custom_ignore = {
   \ 'dir': '\v[\/]\.(git)|test\-results|app\/vendor|node_modules|coverage|app\/fonts|app\/img|dist|release$'
 \}
 
+" vim-angular
+
+let g:angular_source_directory = 'app'
+let g:angular_test_directory = 'test/unit'
+let g:angular_filename_convention = 'camelcased'
 
