@@ -23,15 +23,15 @@ set t_Co=256
 imap jj <Esc>
 nmap ]l :lnext<CR>
 nmap [l :lprevious<CR>
+nmap <leader>p :CtrlP<CR>
 
 call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
 
-" Plug 'junegunn/vim-easy-align'
 Plug 'easymotion/vim-easymotion'
 Plug 'PeterRincker/vim-argumentative'
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'helino/vim-json'
 Plug 'marijnh/tern_for_vim'
@@ -41,12 +41,13 @@ Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
 Plug 'jelera/vim-javascript-syntax'
-Plug 'junegunn/vim-easy-align'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'burnettk/vim-angular'
+Plug 'mtscout6/syntastic-local-eslint.vim'
+Plug 'editorconfig/editorconfig-vim'
 
 " Add plugins to &runtimepath
 call plug#end()
