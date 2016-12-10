@@ -48,6 +48,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'burnettk/vim-angular'
 Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'mxw/vim-jsx'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -60,7 +61,7 @@ let g:javascript_enable_domhtmlcss = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_theme = 'bubblegum'
+let g:airline_theme = 'powerlineish'
 
 " buffergator
 set hidden
@@ -94,4 +95,16 @@ let g:ctrlp_custom_ignore = {
 let g:angular_source_directory = 'app'
 let g:angular_test_directory = 'test/unit'
 let g:angular_filename_convention = 'camelcased'
+
+" vim-argumentative remapping
+nmap [; <Plug>Argumentative_Prev
+nmap ]; <Plug>Argumentative_Next
+xmap [; <Plug>Argumentative_XPrev
+xmap ]; <Plug>Argumentative_XNext
+nmap <; <Plug>Argumentative_MoveLeft
+nmap >; <Plug>Argumentative_MoveRight
+xmap i; <Plug>Argumentative_InnerTextObject
+xmap a; <Plug>Argumentative_OuterTextObject
+omap i; <Plug>Argumentative_OpPendingInnerTextObject
+omap a; <Plug>Argumentative_OpPendingOuterTextObject
 
