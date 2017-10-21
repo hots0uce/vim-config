@@ -85,8 +85,71 @@ source $ZSH/oh-my-zsh.sh
 # alias vim="nvim"
 alias vim="/usr/local/bin/vim"
 
-
 # Theme config
 # BULLETTRAIN_NVM_SHOW=true
 BULLETTRAIN_GIT_COLORIZE_DIRTY=true
 BULLETTRAIN_TIME_SHOW=false
+
+export NVM_DIR="/Users/jgiuffrida15/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Auto nvm use 
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
+export SSH_AUTH_SOCK=/Users/jgiuffrida15/.yubiagent/sock
+
+ulimit -n 8192
+
+code () {
+    if [[ $# = 0 ]]
+    then
+        open -a "Visual Studio Code"
+    else
+        [[ $1 = /* ]] && F="$1" || F="$PWD/${1#./}"
+        open -a "Visual Studio Code" --args "$F"
+    fi
+}
+
+#### fzf
+if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
+  source /usr/local/opt/fzf/shell/key-bindings.zsh
+  source /usr/local/opt/fzf/shell/completion.zsh
+fi
+
+_has() {
+  return $( whence $1 >/dev/null )
+}
+
+# fzf + ag configuration
+if _has fzf && _has ag; then
+  export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_DEFAULT_OPTS='
+    --color fg:124,bg:16,hl:202,fg+:214,bg+:52,hl+:231
+    --color info:52,prompt:196,spinner:208,pointer:196,marker:208
+  '
+fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+compctl -g '~/.teamocil/*(:t:r)' teamocil
