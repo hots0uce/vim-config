@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/joe/.oh-my-zsh
+export ZSH=/Users/jgiuffrida15/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -84,6 +84,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # alias vim="nvim"
 alias vim="/usr/local/bin/vim"
+eval "$(thefuck --alias)"
+alias fcmp='gradle flywayClean flywayMigrate publishToMavenLocal'
+alias rtr='gradle --refresh-dependencies tomcatRun'
 
 # Theme config
 # BULLETTRAIN_NVM_SHOW=true
@@ -144,10 +147,6 @@ if _has fzf && _has ag; then
   export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
-  export FZF_DEFAULT_OPTS='
-    --color fg:124,bg:16,hl:202,fg+:214,bg+:52,hl+:231
-    --color info:52,prompt:196,spinner:208,pointer:196,marker:208
-  '
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
